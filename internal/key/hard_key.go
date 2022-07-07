@@ -12,14 +12,14 @@ import (
 	"github.com/ava-labs/subnet-cli/pkg/color"
 
 	ledger "github.com/ava-labs/avalanche-ledger-go"
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/utils/crypto"
-	"github.com/ava-labs/avalanchego/utils/formatting"
-	"github.com/ava-labs/avalanchego/utils/hashing"
-	"github.com/ava-labs/avalanchego/vms/components/avax"
-	"github.com/ava-labs/avalanchego/vms/components/verify"
-	"github.com/ava-labs/avalanchego/vms/platformvm"
-	"github.com/ava-labs/avalanchego/vms/secp256k1fx"
+	"github.com/chain4travel/caminogo/ids"
+	"github.com/chain4travel/caminogo/utils/crypto"
+	"github.com/chain4travel/caminogo/utils/formatting"
+	"github.com/chain4travel/caminogo/utils/hashing"
+	"github.com/chain4travel/caminogo/vms/components/avax"
+	"github.com/chain4travel/caminogo/vms/components/verify"
+	"github.com/chain4travel/caminogo/vms/platformvm"
+	"github.com/chain4travel/caminogo/vms/secp256k1fx"
 	"github.com/manifoldco/promptui"
 	"github.com/onsi/ginkgo/v2/formatter"
 	"go.uber.org/zap"
@@ -109,8 +109,9 @@ func NewHard(networkID uint32) (*HardKey, error) {
 			if err != nil {
 				return err
 			}
-			k.shortAddrs[i] = addr.ShortAddr
-			k.shortAddrMap[addr.ShortAddr] = uint32(i)
+			// TODO[pnowosie]: 👆 ledger still depends of avalanchego which I replaced by caminogo
+			//k.shortAddrs[i] = addr.ShortAddr
+			//k.shortAddrMap[addr.ShortAddr] = uint32(i)
 		}
 		return nil
 	}, "failed to get extended public key"); err != nil {

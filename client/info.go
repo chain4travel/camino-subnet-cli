@@ -4,7 +4,7 @@
 package client
 
 import (
-	api_info "github.com/ava-labs/avalanchego/api/info"
+	api_info "github.com/chain4travel/caminogo/api/info"
 )
 
 type Info interface {

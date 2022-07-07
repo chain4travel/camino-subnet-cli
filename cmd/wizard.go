@@ -11,8 +11,8 @@ import (
 	"os"
 	"time"
 
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/utils/units"
+	"github.com/chain4travel/caminogo/ids"
+	"github.com/chain4travel/caminogo/utils/units"
 	"github.com/dustin/go-humanize"
 	"github.com/manifoldco/promptui"
 	"github.com/onsi/ginkgo/v2/formatter"

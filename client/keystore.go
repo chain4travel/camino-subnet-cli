@@ -4,7 +4,7 @@
 package client
 
 import (
-	api_keystore "github.com/ava-labs/avalanchego/api/keystore"
+	api_keystore "github.com/chain4travel/caminogo/api/keystore"
 )
 
 type KeyStore interface {

@@ -11,12 +11,12 @@ import (
 	"net/url"
 	"time"
 
-	"github.com/ava-labs/avalanchego/ids"
-	avago_constants "github.com/ava-labs/avalanchego/utils/constants"
-	"github.com/ava-labs/avalanchego/vms/avm"
-	"github.com/ava-labs/avalanchego/vms/platformvm"
 	internal_platformvm "github.com/ava-labs/subnet-cli/internal/platformvm"
 	"github.com/ava-labs/subnet-cli/internal/poll"
+	"github.com/chain4travel/caminogo/ids"
+	avago_constants "github.com/chain4travel/caminogo/utils/constants"
+	"github.com/chain4travel/caminogo/vms/avm"
+	"github.com/chain4travel/caminogo/vms/platformvm"
 	"go.uber.org/zap"
 )
 
@@ -97,7 +97,7 @@ func New(cfg Config) (Client, error) {
 		zap.String("uri", uriX),
 	)
 	xc := avm.NewClient(uriX, xChainName)
-	avaxDesc, err := xc.GetAssetDescription(context.TODO(), "AVAX")
+	avaxDesc, err := xc.GetAssetDescription(context.TODO(), "CAM")
 	if err != nil {
 		return nil, err
 	}

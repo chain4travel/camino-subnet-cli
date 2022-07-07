@@ -14,12 +14,12 @@ import (
 
 	"github.com/ava-labs/subnet-cli/internal/codec"
 
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/utils/crypto"
-	"github.com/ava-labs/avalanchego/utils/formatting"
-	"github.com/ava-labs/avalanchego/vms/components/avax"
-	"github.com/ava-labs/avalanchego/vms/platformvm"
-	"github.com/ava-labs/avalanchego/vms/secp256k1fx"
+	"github.com/chain4travel/caminogo/ids"
+	"github.com/chain4travel/caminogo/utils/crypto"
+	"github.com/chain4travel/caminogo/utils/formatting"
+	"github.com/chain4travel/caminogo/vms/components/avax"
+	"github.com/chain4travel/caminogo/vms/platformvm"
+	"github.com/chain4travel/caminogo/vms/secp256k1fx"
 	"go.uber.org/zap"
 )
 

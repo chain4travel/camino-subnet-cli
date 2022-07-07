@@ -9,11 +9,11 @@ import (
 	"errors"
 	"sort"
 
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/utils/constants"
-	"github.com/ava-labs/avalanchego/vms/components/avax"
-	"github.com/ava-labs/avalanchego/vms/platformvm"
-	"github.com/ava-labs/avalanchego/vms/secp256k1fx"
+	"github.com/chain4travel/caminogo/ids"
+	"github.com/chain4travel/caminogo/utils/constants"
+	"github.com/chain4travel/caminogo/vms/components/avax"
+	"github.com/chain4travel/caminogo/vms/platformvm"
+	"github.com/chain4travel/caminogo/vms/secp256k1fx"
 )
 
 var (
@@ -118,7 +118,7 @@ func (ins *innerSortTransferableInputsWithSigners) Swap(i, j int) {
 // SortTransferableInputsWithSigners sorts the inputs and signers based on the
 // input's utxo ID.
 //
-// This is based off of (generics?): https://github.com/ava-labs/avalanchego/blob/224c9fd23d41839201dd0275ac864a845de6e93e/vms/components/avax/transferables.go#L202
+// This is based off of (generics?): https://github.com/ava-labs/avalancheg_o/blob/224c9fd23d41839201dd0275ac864a845de6e93e/vms/components/avax/transferables.go#L202
 func SortTransferableInputsWithSigners(ins []*avax.TransferableInput, signers [][]ids.ShortID) {
 	sort.Sort(&innerSortTransferableInputsWithSigners{ins: ins, signers: signers})
 }

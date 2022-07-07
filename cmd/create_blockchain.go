@@ -9,8 +9,8 @@ import (
 	"io/ioutil"
 	"os"
 
-	"github.com/ava-labs/avalanchego/ids"
 	"github.com/ava-labs/subnet-cli/pkg/color"
+	"github.com/chain4travel/caminogo/ids"
 	"github.com/manifoldco/promptui"
 	"github.com/onsi/ginkgo/v2/formatter"
 	"github.com/spf13/cobra"

@@ -7,10 +7,10 @@ package cmd
 import (
 	"context"
 
-	"github.com/ava-labs/avalanchego/ids"
-	pstatus "github.com/ava-labs/avalanchego/vms/platformvm/status"
 	internal_platformvm "github.com/ava-labs/subnet-cli/internal/platformvm"
 	"github.com/ava-labs/subnet-cli/pkg/color"
+	"github.com/chain4travel/caminogo/ids"
+	pstatus "github.com/chain4travel/caminogo/vms/platformvm/status"
 	"github.com/spf13/cobra"
 )
 

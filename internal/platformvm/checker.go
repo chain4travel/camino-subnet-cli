@@ -3,18 +3,18 @@
 
 package platformvm
 
-// TO BE MOVED TO "github.com/ava-labs/avalanchego/vms/platformvm"
+// TO BE MOVED TO "github.com/ava-labs/avalancheg_o/vms/platformvm"
 
 import (
 	"context"
 	"errors"
 	"time"
 
-	"github.com/ava-labs/avalanchego/api/info"
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/vms/platformvm"
-	pstatus "github.com/ava-labs/avalanchego/vms/platformvm/status"
 	"github.com/ava-labs/subnet-cli/internal/poll"
+	"github.com/chain4travel/caminogo/api/info"
+	"github.com/chain4travel/caminogo/ids"
+	"github.com/chain4travel/caminogo/vms/platformvm"
+	pstatus "github.com/chain4travel/caminogo/vms/platformvm/status"
 	"go.uber.org/zap"
 )
 

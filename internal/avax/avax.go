@@ -6,8 +6,8 @@ package avax
 import (
 	"fmt"
 
-	"github.com/ava-labs/avalanchego/codec"
-	"github.com/ava-labs/avalanchego/vms/components/avax"
+	"github.com/chain4travel/caminogo/codec"
+	"github.com/chain4travel/caminogo/vms/components/avax"
 )
 
 func ParseUTXO(ub []byte, cd codec.Manager) (*avax.UTXO, error) {

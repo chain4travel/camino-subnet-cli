@@ -1,16 +1,17 @@
-module github.com/ava-labs/subnet-cli
+module github.com/chain4travel/subnet-cli
 
 go 1.17
 
 require (
 	github.com/ava-labs/avalanche-ledger-go v0.0.5
-	github.com/ava-labs/avalanchego v1.7.6
+	github.com/ava-labs/subnet-cli v0.0.2
+	github.com/chain4travel/caminogo v0.2.0
 	github.com/dustin/go-humanize v1.0.0
 	github.com/gyuho/avax-tester v0.0.4
 	github.com/manifoldco/promptui v0.9.0
 	github.com/olekukonko/tablewriter v0.0.5
-	github.com/onsi/ginkgo/v2 v2.1.0
-	github.com/onsi/gomega v1.17.0
+	github.com/onsi/ginkgo/v2 v2.1.3
+	github.com/onsi/gomega v1.19.0
 	github.com/spf13/cobra v1.3.0
 	go.uber.org/zap v1.19.0
 )
@@ -18,6 +19,7 @@ require (
 require (
 	github.com/FactomProject/btcutilecc v0.0.0-20130527213604-d3a63a5752ec // indirect
 	github.com/NYTimes/gziphandler v1.1.1 // indirect
+	github.com/ava-labs/avalanchego v1.7.6 // indirect
 	github.com/beorn7/perks v1.0.1 // indirect
 	github.com/btcsuite/btcutil v1.0.2 // indirect
 	github.com/cespare/xxhash/v2 v2.1.2 // indirect
@@ -58,9 +60,9 @@ require (
 	go.uber.org/atomic v1.7.0 // indirect
 	go.uber.org/multierr v1.6.0 // indirect
 	golang.org/x/crypto v0.0.0-20210817164053-32db794688a5 // indirect
-	golang.org/x/net v0.0.0-20210813160813-60bc85c4be6d // indirect
-	golang.org/x/sys v0.0.0-20211205182925-97ca703d548d // indirect
-	golang.org/x/term v0.0.0-20210220032956-6a3ed077a48d // indirect
+	golang.org/x/net v0.0.0-20220225172249-27dd8689420f // indirect
+	golang.org/x/sys v0.0.0-20220204135822-1c1b9b1eba6a // indirect
+	golang.org/x/term v0.0.0-20210927222741-03fcf44c2211 // indirect
 	golang.org/x/text v0.3.7 // indirect
 	golang.org/x/time v0.0.0-20210723032227-1f47c861a9ac // indirect
 	gonum.org/v1/gonum v0.9.1 // indirect

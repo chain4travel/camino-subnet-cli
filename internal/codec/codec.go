@@ -4,11 +4,11 @@
 package codec
 
 import (
-	"github.com/ava-labs/avalanchego/codec"
-	"github.com/ava-labs/avalanchego/codec/linearcodec"
-	"github.com/ava-labs/avalanchego/utils/wrappers"
-	"github.com/ava-labs/avalanchego/vms/platformvm"
-	"github.com/ava-labs/avalanchego/vms/secp256k1fx"
+	"github.com/chain4travel/caminogo/codec"
+	"github.com/chain4travel/caminogo/codec/linearcodec"
+	"github.com/chain4travel/caminogo/utils/wrappers"
+	"github.com/chain4travel/caminogo/vms/platformvm"
+	"github.com/chain4travel/caminogo/vms/secp256k1fx"
 )
 
 var PCodecManager codec.Manager

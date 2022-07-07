@@ -4,7 +4,7 @@
 package cmd
 
 import (
-	"github.com/ava-labs/avalanchego/ids"
+	"github.com/chain4travel/caminogo/ids"
 	"github.com/onsi/ginkgo/v2/formatter"
 	"github.com/spf13/cobra"
 )
