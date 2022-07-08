@@ -46,7 +46,7 @@ $ subnet-cli add validator \
 	}
 
 	cmd.PersistentFlags().StringSliceVar(&nodeIDs, "node-ids", nil, "a list of node IDs (must be formatted in ids.ID)")
-	cmd.PersistentFlags().Uint64Var(&stakeAmount, "stake-amount", defaultStakeAmount, "stake amount denominated in nano AVAX (minimum amount that a validator must stake is 2,000 AVAX)")
+	cmd.PersistentFlags().Uint64Var(&stakeAmount, "stake-amount", defaultStakeAmount, "stake amount denominated in nano CAM (minimum amount that a validator must stake is 2,000 CAM)")
 
 	end := time.Now().Add(defaultValDuration)
 	cmd.PersistentFlags().StringVar(&validateEnds, "validate-end", end.Format(time.RFC3339), "validate start timestamp in RFC3339 format")

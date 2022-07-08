@@ -150,26 +150,26 @@ func BaseTableSetup(i *Info) (*bytes.Buffer, *tablewriter.Table) {
 	tb.SetAlignment(tablewriter.ALIGN_LEFT)
 
 	tb.Append([]string{formatter.F("{{cyan}}{{bold}}PRIMARY P-CHAIN ADDRESS{{/}}"), formatter.F("{{light-gray}}{{bold}}%s{{/}}", i.key.P()[0])})
-	tb.Append([]string{formatter.F("{{coral}}{{bold}}TOTAL P-CHAIN BALANCE{{/}} "), formatter.F("{{light-gray}}{{bold}}{{underline}}%s{{/}} $AVAX", curPChainDenominatedBalanceP)})
+	tb.Append([]string{formatter.F("{{coral}}{{bold}}TOTAL P-CHAIN BALANCE{{/}} "), formatter.F("{{light-gray}}{{bold}}{{underline}}%s{{/}} $CAM", curPChainDenominatedBalanceP)})
 	if i.txFee > 0 {
 		txFee := float64(i.txFee) / float64(units.Avax)
 		txFees := humanize.FormatFloat("#,###.###", txFee)
-		tb.Append([]string{formatter.F("{{red}}{{bold}}TX FEE{{/}}"), formatter.F("{{light-gray}}{{bold}}{{underline}}%s{{/}} $AVAX", txFees)})
+		tb.Append([]string{formatter.F("{{red}}{{bold}}TX FEE{{/}}"), formatter.F("{{light-gray}}{{bold}}{{underline}}%s{{/}} $CAM", txFees)})
 	}
 	if i.stakeAmount > 0 {
 		stakeAmount := float64(i.stakeAmount) / float64(units.Avax)
 		stakeAmounts := humanize.FormatFloat("#,###.###", stakeAmount)
-		tb.Append([]string{formatter.F("{{red}}{{bold}}EACH STAKE AMOUNT{{/}}"), formatter.F("{{light-gray}}{{bold}}{{underline}}%s{{/}} $AVAX", stakeAmounts)})
+		tb.Append([]string{formatter.F("{{red}}{{bold}}EACH STAKE AMOUNT{{/}}"), formatter.F("{{light-gray}}{{bold}}{{underline}}%s{{/}} $CAM", stakeAmounts)})
 	}
 	if i.totalStakeAmount > 0 {
 		totalStakeAmount := float64(i.totalStakeAmount) / float64(units.Avax)
 		totalStakeAmounts := humanize.FormatFloat("#,###.###", totalStakeAmount)
-		tb.Append([]string{formatter.F("{{red}}{{bold}}TOTAL STAKE AMOUNT{{/}}"), formatter.F("{{light-gray}}{{bold}}{{underline}}%s{{/}} $AVAX", totalStakeAmounts)})
+		tb.Append([]string{formatter.F("{{red}}{{bold}}TOTAL STAKE AMOUNT{{/}}"), formatter.F("{{light-gray}}{{bold}}{{underline}}%s{{/}} $CAM", totalStakeAmounts)})
 	}
 	if i.requiredBalance > 0 {
 		requiredBalance := float64(i.requiredBalance) / float64(units.Avax)
 		requiredBalances := humanize.FormatFloat("#,###.###", requiredBalance)
-		tb.Append([]string{formatter.F("{{red}}{{bold}}REQUIRED BALANCE{{/}}"), formatter.F("{{light-gray}}{{bold}}{{underline}}%s{{/}} $AVAX", requiredBalances)})
+		tb.Append([]string{formatter.F("{{red}}{{bold}}REQUIRED BALANCE{{/}}"), formatter.F("{{light-gray}}{{bold}}{{underline}}%s{{/}} $CAM", requiredBalances)})
 	}
 
 	tb.Append([]string{formatter.F("{{orange}}URI{{/}}"), formatter.F("{{light-gray}}{{bold}}%s{{/}}", i.uri)})

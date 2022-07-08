@@ -162,7 +162,7 @@ subnet-cli create subnet \
 ```bash
 subnet-cli add validator \
 --node-ids="[YOUR-NODE-ID]" \
---stake-amount=[STAKE-AMOUNT-IN-NANO-AVAX] \
+--stake-amount=[STAKE-AMOUNT-IN-NANO-CAM] \
 --validate-reward-fee-percent=2
 ```
 

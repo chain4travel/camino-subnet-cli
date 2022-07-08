@@ -93,7 +93,7 @@ func New(cfg Config) (Client, error) {
 		// e.g., https://api.avax-test.network
 		xChainName = "X"
 	}
-	zap.L().Info("fetching AVAX asset id",
+	zap.L().Info("fetching CAM asset id",
 		zap.String("uri", uriX),
 	)
 	xc := avm.NewClient(uriX, xChainName)
@@ -102,7 +102,7 @@ func New(cfg Config) (Client, error) {
 		return nil, err
 	}
 	cli.assetID = avaxDesc.AssetID
-	zap.L().Info("fetched AVAX asset id", zap.String("id", cli.assetID.String()))
+	zap.L().Info("fetched CAM asset id", zap.String("id", cli.assetID.String()))
 
 	zap.L().Info("fetching network information")
 	cli.networkName, err = cli.i.Client().GetNetworkName(context.TODO())

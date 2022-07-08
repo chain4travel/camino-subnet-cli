@@ -646,15 +646,15 @@ func (pc *p) stake(ctx context.Context, k key.Key, fee uint64, opts ...OpOption)
 		}
 	}
 
-	// amount of AVAX that has been staked
+	// amount of CAM that has been staked
 	amountStaked := uint64(0)
 	for _, utxo := range utxos {
-		// have staked more AVAX then we need to
-		// no need to consume more AVAX
+		// have staked more CAM then we need to
+		// no need to consume more CAM
 		if amountStaked >= ret.stakeAmt {
 			break
 		}
-		// assume "AssetID" is set to "AVAX" asset ID
+		// assume "AssetID" is set to "CAM" asset ID
 		if utxo.AssetID() != pc.assetID {
 			continue
 		}
@@ -729,16 +729,16 @@ func (pc *p) stake(ctx context.Context, k key.Key, fee uint64, opts ...OpOption)
 		signers = append(signers, inputSigners...)
 	}
 
-	// amount of AVAX that has been burned
+	// amount of CAM that has been burned
 	amountBurned := uint64(0)
 	for _, utxo := range utxos {
-		// have staked more AVAX then we need to
-		// have burned more AVAX then we need to
-		// no need to consume more AVAX
+		// have staked more CAM then we need to
+		// have burned more CAM then we need to
+		// no need to consume more CAM
 		if amountStaked >= ret.stakeAmt && amountBurned >= fee {
 			break
 		}
-		// assume "AssetID" is set to "AVAX" asset ID
+		// assume "AssetID" is set to "CAM" asset ID
 		if utxo.AssetID() != pc.assetID {
 			continue
 		}

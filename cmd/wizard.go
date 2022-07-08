@@ -242,7 +242,7 @@ func CreateSpellPreTable(i *Info) string {
 		tb.Append([]string{formatter.F("{{magenta}}VALIDATE END{{/}}"), formatter.F("{{light-gray}}{{bold}}%s{{/}}", i.validateEnd.Format(time.RFC3339))})
 		stakeAmount := float64(i.stakeAmount) / float64(units.Avax)
 		stakeAmounts := humanize.FormatFloat("#,###.###", stakeAmount)
-		tb.Append([]string{formatter.F("{{magenta}}STAKE AMOUNT{{/}}"), formatter.F("{{light-gray}}{{bold}}%s{{/}} $AVAX", stakeAmounts)})
+		tb.Append([]string{formatter.F("{{magenta}}STAKE AMOUNT{{/}}"), formatter.F("{{light-gray}}{{bold}}%s{{/}} $CAM", stakeAmounts)})
 		validateRewardFeePercent := humanize.FormatFloat("#,###.###", float64(i.validateRewardFeePercent))
 		tb.Append([]string{formatter.F("{{magenta}}VALIDATE REWARD FEE{{/}}"), formatter.F("{{light-gray}}{{bold}}{{underline}}%s{{/}} %%", validateRewardFeePercent)})
 		tb.Append([]string{formatter.F("{{cyan}}{{bold}}REWARD ADDRESS{{/}}"), formatter.F("{{light-gray}}%s{{/}}", i.rewardAddr)})
