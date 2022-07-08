@@ -15,6 +15,7 @@ import (
 	"github.com/ava-labs/subnet-cli/internal/codec"
 
 	"github.com/chain4travel/caminogo/ids"
+	"github.com/chain4travel/caminogo/utils/constants"
 	"github.com/chain4travel/caminogo/utils/crypto"
 	"github.com/chain4travel/caminogo/utils/formatting"
 	"github.com/chain4travel/caminogo/vms/components/avax"
@@ -134,7 +135,7 @@ func NewSoft(networkID uint32, opts ...SOpOption) (*SoftKey, error) {
 	}
 
 	// Parse HRP to create valid address
-	hrp := getHRP(networkID)
+	hrp := constants.GetHRP(networkID)
 	m.pAddr, err = formatting.FormatAddress("P", hrp, m.privKey.PublicKey().Address().Bytes())
 	if err != nil {
 		return nil, err

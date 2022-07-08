@@ -13,6 +13,7 @@ import (
 
 	ledger "github.com/ava-labs/avalanche-ledger-go"
 	"github.com/chain4travel/caminogo/ids"
+	"github.com/chain4travel/caminogo/utils/constants"
 	"github.com/chain4travel/caminogo/utils/crypto"
 	"github.com/chain4travel/caminogo/utils/formatting"
 	"github.com/chain4travel/caminogo/utils/hashing"
@@ -94,7 +95,7 @@ func NewHard(networkID uint32) (*HardKey, error) {
 	}
 
 	color.Outf("{{yellow}}deriving address from ledger...{{/}}\n")
-	hrp := getHRP(networkID)
+	hrp := constants.GetHRP(networkID)
 	if err := retriableLegerAction(func() error {
 		addrs, err := k.l.Addresses(hrp, numAddresses)
 		if err != nil {

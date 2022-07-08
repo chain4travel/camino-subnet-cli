@@ -1,4 +1,4 @@
-module github.com/chain4travel/subnet-cli
+module github.com/ava-labs/subnet-cli
 
 go 1.17
 

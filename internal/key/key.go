@@ -10,7 +10,6 @@ import (
 	"sort"
 
 	"github.com/chain4travel/caminogo/ids"
-	"github.com/chain4travel/caminogo/utils/constants"
 	"github.com/chain4travel/caminogo/vms/components/avax"
 	"github.com/chain4travel/caminogo/vms/platformvm"
 	"github.com/chain4travel/caminogo/vms/secp256k1fx"
@@ -75,19 +74,6 @@ func WithTargetAmount(ta uint64) OpOption {
 func WithFeeDeduct(fee uint64) OpOption {
 	return func(op *Op) {
 		op.feeDeduct = fee
-	}
-}
-
-func getHRP(networkID uint32) string {
-	switch networkID {
-	case constants.LocalID:
-		return constants.LocalHRP
-	case constants.FujiID:
-		return constants.FujiHRP
-	case constants.MainnetID:
-		return constants.MainnetHRP
-	default:
-		return constants.FallbackHRP
 	}
 }
 
