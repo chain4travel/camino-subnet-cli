@@ -18,5 +18,5 @@ builds:
 
 release:
   github:
-    owner: ava-labs
-    name: subnet-cli
+    owner: chain4travel
+    name: camino-subnet-cli
