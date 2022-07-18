@@ -10,7 +10,7 @@ import (
 	"errors"
 	"time"
 
-	"github.com/ava-labs/subnet-cli/internal/poll"
+	"github.com/chain4travel/camino-subnet-cli/internal/poll"
 	"github.com/chain4travel/caminogo/api/info"
 	"github.com/chain4travel/caminogo/ids"
 	"github.com/chain4travel/caminogo/vms/platformvm"

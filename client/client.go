@@ -11,8 +11,8 @@ import (
 	"net/url"
 	"time"
 
-	internal_platformvm "github.com/ava-labs/subnet-cli/internal/platformvm"
-	"github.com/ava-labs/subnet-cli/internal/poll"
+	internal_platformvm "github.com/chain4travel/camino-subnet-cli/internal/platformvm"
+	"github.com/chain4travel/camino-subnet-cli/internal/poll"
 	"github.com/chain4travel/caminogo/ids"
 	avago_constants "github.com/chain4travel/caminogo/utils/constants"
 	"github.com/chain4travel/caminogo/vms/avm"

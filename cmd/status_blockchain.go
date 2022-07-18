@@ -7,8 +7,8 @@ package cmd
 import (
 	"context"
 
-	internal_platformvm "github.com/ava-labs/subnet-cli/internal/platformvm"
-	"github.com/ava-labs/subnet-cli/pkg/color"
+	internal_platformvm "github.com/chain4travel/camino-subnet-cli/internal/platformvm"
+	"github.com/chain4travel/camino-subnet-cli/pkg/color"
 	"github.com/chain4travel/caminogo/ids"
 	pstatus "github.com/chain4travel/caminogo/vms/platformvm/status"
 	"github.com/spf13/cobra"

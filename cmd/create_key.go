@@ -6,8 +6,8 @@ package cmd
 import (
 	"os"
 
-	"github.com/ava-labs/subnet-cli/internal/key"
-	"github.com/ava-labs/subnet-cli/pkg/color"
+	"github.com/chain4travel/camino-subnet-cli/internal/key"
+	"github.com/chain4travel/camino-subnet-cli/pkg/color"
 	"github.com/spf13/cobra"
 )
 

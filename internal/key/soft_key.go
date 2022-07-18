@@ -12,8 +12,7 @@ import (
 	"io/ioutil"
 	"strings"
 
-	"github.com/ava-labs/subnet-cli/internal/codec"
-
+	"github.com/chain4travel/camino-subnet-cli/internal/codec"
 	"github.com/chain4travel/caminogo/ids"
 	"github.com/chain4travel/caminogo/utils/constants"
 	"github.com/chain4travel/caminogo/utils/crypto"

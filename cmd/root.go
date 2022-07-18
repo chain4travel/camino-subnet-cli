@@ -8,7 +8,7 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/ava-labs/subnet-cli/pkg/logutil"
+	"github.com/chain4travel/camino-subnet-cli/pkg/logutil"
 )
 
 var rootCmd = &cobra.Command{

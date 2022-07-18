@@ -6,7 +6,7 @@ package cmd
 import (
 	"fmt"
 
-	"github.com/ava-labs/subnet-cli/pkg/color"
+	"github.com/chain4travel/camino-subnet-cli/pkg/color"
 	"github.com/chain4travel/caminogo/ids"
 	"github.com/chain4travel/caminogo/utils/hashing"
 	"github.com/spf13/cobra"

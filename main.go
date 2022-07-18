@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/ava-labs/subnet-cli/cmd"
+	"github.com/chain4travel/camino-subnet-cli/cmd"
 )
 
 func main() {

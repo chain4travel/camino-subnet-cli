@@ -18,8 +18,8 @@ import (
 	"github.com/onsi/ginkgo/v2/formatter"
 	"github.com/spf13/cobra"
 
-	"github.com/ava-labs/subnet-cli/client"
-	"github.com/ava-labs/subnet-cli/pkg/color"
+	"github.com/chain4travel/camino-subnet-cli/client"
+	"github.com/chain4travel/camino-subnet-cli/pkg/color"
 )
 
 // WizardCommand implements "subnet-cli wizard" command.

@@ -19,10 +19,10 @@ import (
 	"github.com/onsi/ginkgo/v2/formatter"
 	"go.uber.org/zap"
 
-	"github.com/ava-labs/subnet-cli/client"
-	"github.com/ava-labs/subnet-cli/internal/key"
-	"github.com/ava-labs/subnet-cli/pkg/color"
-	"github.com/ava-labs/subnet-cli/pkg/logutil"
+	"github.com/chain4travel/camino-subnet-cli/client"
+	"github.com/chain4travel/camino-subnet-cli/internal/key"
+	"github.com/chain4travel/camino-subnet-cli/pkg/color"
+	"github.com/chain4travel/camino-subnet-cli/pkg/logutil"
 )
 
 const (
@@ -96,16 +96,9 @@ func InitClient(uri string, loadKey bool) (client.Client, *Info, error) {
 		return cli, info, nil
 	}
 
-	if !useLedger {
-		info.key, err = key.LoadSoft(cli.NetworkID(), privKeyPath)
-		if err != nil {
-			return nil, nil, err
-		}
-	} else {
-		info.key, err = key.NewHard(cli.NetworkID())
-		if err != nil {
-			return nil, nil, err
-		}
+	info.key, err = key.LoadSoft(cli.NetworkID(), privKeyPath)
+	if err != nil {
+		return nil, nil, err
 	}
 
 	info.balance, err = cli.P().Balance(context.TODO(), info.key)

@@ -1,10 +1,8 @@
-module github.com/ava-labs/subnet-cli
+module github.com/chain4travel/camino-subnet-cli
 
 go 1.17
 
 require (
-	github.com/ava-labs/avalanche-ledger-go v0.0.5
-	github.com/ava-labs/subnet-cli v0.0.2
 	github.com/chain4travel/caminogo v0.2.0
 	github.com/dustin/go-humanize v1.0.0
 	github.com/gyuho/avax-tester v0.0.4
