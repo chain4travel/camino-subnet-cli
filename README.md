@@ -87,7 +87,7 @@ subnet-cli create key
 ```
 
 This creates a file `.subnet-cli.pk` under the current directory with a private key. By default,
-`subnet-cli` uses the key specified in file `.subnet-cli.pk` on the P-Chain to pay for the transaction fee, unless `--private-key-path` is used to overwrite. Please make sure that you have enough fund on this P-Chain address to pay for transactions.
+`subnet-cli` uses the key specified in file `.subnet-cli.pk` on the P-Chain to pay for the transaction fee, unless `--private-key-path` is used to overwrite. Please make sure that you have enough funds on this P-Chain address to pay for transactions.
 
 #### Local
 
