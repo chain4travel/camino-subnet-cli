@@ -1,3 +1,14 @@
+// Copyright (C) 2022, Chain4Travel AG. All rights reserved.
+//
+// This file is a derived work, based on ava-labs code whose
+// original notices appear below.
+//
+// It is distributed under the same license conditions as the
+// original code from which it is derived.
+//
+// Much love to the original authors for their work.
+// **********************************************************
+
 // Copyright (C) 2019-2022, Ava Labs, Inc. All rights reserved.
 // See the file LICENSE for licensing terms.
 
@@ -10,21 +21,21 @@ import (
 	"strconv"
 	"time"
 
-	api_info "github.com/ava-labs/avalanchego/api/info"
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/snow"
-	"github.com/ava-labs/avalanchego/utils/constants"
-	"github.com/ava-labs/avalanchego/utils/math"
-	"github.com/ava-labs/avalanchego/utils/units"
-	"github.com/ava-labs/avalanchego/vms/components/avax"
-	"github.com/ava-labs/avalanchego/vms/components/verify"
-	"github.com/ava-labs/avalanchego/vms/platformvm"
-	pstatus "github.com/ava-labs/avalanchego/vms/platformvm/status"
-	"github.com/ava-labs/avalanchego/vms/secp256k1fx"
-	internal_avax "github.com/ava-labs/subnet-cli/internal/avax"
-	"github.com/ava-labs/subnet-cli/internal/codec"
-	"github.com/ava-labs/subnet-cli/internal/key"
-	internal_platformvm "github.com/ava-labs/subnet-cli/internal/platformvm"
+	internal_avax "github.com/chain4travel/camino-subnet-cli/internal/avax"
+	"github.com/chain4travel/camino-subnet-cli/internal/codec"
+	"github.com/chain4travel/camino-subnet-cli/internal/key"
+	internal_platformvm "github.com/chain4travel/camino-subnet-cli/internal/platformvm"
+	api_info "github.com/chain4travel/caminogo/api/info"
+	"github.com/chain4travel/caminogo/ids"
+	"github.com/chain4travel/caminogo/snow"
+	"github.com/chain4travel/caminogo/utils/constants"
+	"github.com/chain4travel/caminogo/utils/math"
+	"github.com/chain4travel/caminogo/utils/units"
+	"github.com/chain4travel/caminogo/vms/components/avax"
+	"github.com/chain4travel/caminogo/vms/components/verify"
+	"github.com/chain4travel/caminogo/vms/platformvm"
+	pstatus "github.com/chain4travel/caminogo/vms/platformvm/status"
+	"github.com/chain4travel/caminogo/vms/secp256k1fx"
 	"go.uber.org/zap"
 )
 
@@ -646,15 +657,15 @@ func (pc *p) stake(ctx context.Context, k key.Key, fee uint64, opts ...OpOption)
 		}
 	}
 
-	// amount of AVAX that has been staked
+	// amount of CAM that has been staked
 	amountStaked := uint64(0)
 	for _, utxo := range utxos {
-		// have staked more AVAX then we need to
-		// no need to consume more AVAX
+		// have staked more CAM then we need to
+		// no need to consume more CAM
 		if amountStaked >= ret.stakeAmt {
 			break
 		}
-		// assume "AssetID" is set to "AVAX" asset ID
+		// assume "AssetID" is set to "CAM" asset ID
 		if utxo.AssetID() != pc.assetID {
 			continue
 		}
@@ -729,16 +740,16 @@ func (pc *p) stake(ctx context.Context, k key.Key, fee uint64, opts ...OpOption)
 		signers = append(signers, inputSigners...)
 	}
 
-	// amount of AVAX that has been burned
+	// amount of CAM that has been burned
 	amountBurned := uint64(0)
 	for _, utxo := range utxos {
-		// have staked more AVAX then we need to
-		// have burned more AVAX then we need to
-		// no need to consume more AVAX
+		// have staked more CAM then we need to
+		// have burned more CAM then we need to
+		// no need to consume more CAM
 		if amountStaked >= ret.stakeAmt && amountBurned >= fee {
 			break
 		}
-		// assume "AssetID" is set to "AVAX" asset ID
+		// assume "AssetID" is set to "CAM" asset ID
 		if utxo.AssetID() != pc.assetID {
 			continue
 		}

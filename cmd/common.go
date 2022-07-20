@@ -1,3 +1,14 @@
+// Copyright (C) 2022, Chain4Travel AG. All rights reserved.
+//
+// This file is a derived work, based on ava-labs code whose
+// original notices appear below.
+//
+// It is distributed under the same license conditions as the
+// original code from which it is derived.
+//
+// Much love to the original authors for their work.
+// **********************************************************
+
 // Copyright (C) 2019-2022, Ava Labs, Inc. All rights reserved.
 // See the file LICENSE for licensing terms.
 
@@ -10,19 +21,19 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/ava-labs/avalanchego/api/info"
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/utils/constants"
-	"github.com/ava-labs/avalanchego/utils/units"
+	"github.com/chain4travel/caminogo/api/info"
+	"github.com/chain4travel/caminogo/ids"
+	"github.com/chain4travel/caminogo/utils/constants"
+	"github.com/chain4travel/caminogo/utils/units"
 	"github.com/dustin/go-humanize"
 	"github.com/olekukonko/tablewriter"
 	"github.com/onsi/ginkgo/v2/formatter"
 	"go.uber.org/zap"
 
-	"github.com/ava-labs/subnet-cli/client"
-	"github.com/ava-labs/subnet-cli/internal/key"
-	"github.com/ava-labs/subnet-cli/pkg/color"
-	"github.com/ava-labs/subnet-cli/pkg/logutil"
+	"github.com/chain4travel/camino-subnet-cli/client"
+	"github.com/chain4travel/camino-subnet-cli/internal/key"
+	"github.com/chain4travel/camino-subnet-cli/pkg/color"
+	"github.com/chain4travel/camino-subnet-cli/pkg/logutil"
 )
 
 const (
@@ -96,16 +107,9 @@ func InitClient(uri string, loadKey bool) (client.Client, *Info, error) {
 		return cli, info, nil
 	}
 
-	if !useLedger {
-		info.key, err = key.LoadSoft(cli.NetworkID(), privKeyPath)
-		if err != nil {
-			return nil, nil, err
-		}
-	} else {
-		info.key, err = key.NewHard(cli.NetworkID())
-		if err != nil {
-			return nil, nil, err
-		}
+	info.key, err = key.LoadSoft(cli.NetworkID(), privKeyPath)
+	if err != nil {
+		return nil, nil, err
 	}
 
 	info.balance, err = cli.P().Balance(context.TODO(), info.key)
@@ -150,26 +154,26 @@ func BaseTableSetup(i *Info) (*bytes.Buffer, *tablewriter.Table) {
 	tb.SetAlignment(tablewriter.ALIGN_LEFT)
 
 	tb.Append([]string{formatter.F("{{cyan}}{{bold}}PRIMARY P-CHAIN ADDRESS{{/}}"), formatter.F("{{light-gray}}{{bold}}%s{{/}}", i.key.P()[0])})
-	tb.Append([]string{formatter.F("{{coral}}{{bold}}TOTAL P-CHAIN BALANCE{{/}} "), formatter.F("{{light-gray}}{{bold}}{{underline}}%s{{/}} $AVAX", curPChainDenominatedBalanceP)})
+	tb.Append([]string{formatter.F("{{coral}}{{bold}}TOTAL P-CHAIN BALANCE{{/}} "), formatter.F("{{light-gray}}{{bold}}{{underline}}%s{{/}} $CAM", curPChainDenominatedBalanceP)})
 	if i.txFee > 0 {
 		txFee := float64(i.txFee) / float64(units.Avax)
 		txFees := humanize.FormatFloat("#,###.###", txFee)
-		tb.Append([]string{formatter.F("{{red}}{{bold}}TX FEE{{/}}"), formatter.F("{{light-gray}}{{bold}}{{underline}}%s{{/}} $AVAX", txFees)})
+		tb.Append([]string{formatter.F("{{red}}{{bold}}TX FEE{{/}}"), formatter.F("{{light-gray}}{{bold}}{{underline}}%s{{/}} $CAM", txFees)})
 	}
 	if i.stakeAmount > 0 {
 		stakeAmount := float64(i.stakeAmount) / float64(units.Avax)
 		stakeAmounts := humanize.FormatFloat("#,###.###", stakeAmount)
-		tb.Append([]string{formatter.F("{{red}}{{bold}}EACH STAKE AMOUNT{{/}}"), formatter.F("{{light-gray}}{{bold}}{{underline}}%s{{/}} $AVAX", stakeAmounts)})
+		tb.Append([]string{formatter.F("{{red}}{{bold}}EACH STAKE AMOUNT{{/}}"), formatter.F("{{light-gray}}{{bold}}{{underline}}%s{{/}} $CAM", stakeAmounts)})
 	}
 	if i.totalStakeAmount > 0 {
 		totalStakeAmount := float64(i.totalStakeAmount) / float64(units.Avax)
 		totalStakeAmounts := humanize.FormatFloat("#,###.###", totalStakeAmount)
-		tb.Append([]string{formatter.F("{{red}}{{bold}}TOTAL STAKE AMOUNT{{/}}"), formatter.F("{{light-gray}}{{bold}}{{underline}}%s{{/}} $AVAX", totalStakeAmounts)})
+		tb.Append([]string{formatter.F("{{red}}{{bold}}TOTAL STAKE AMOUNT{{/}}"), formatter.F("{{light-gray}}{{bold}}{{underline}}%s{{/}} $CAM", totalStakeAmounts)})
 	}
 	if i.requiredBalance > 0 {
 		requiredBalance := float64(i.requiredBalance) / float64(units.Avax)
 		requiredBalances := humanize.FormatFloat("#,###.###", requiredBalance)
-		tb.Append([]string{formatter.F("{{red}}{{bold}}REQUIRED BALANCE{{/}}"), formatter.F("{{light-gray}}{{bold}}{{underline}}%s{{/}} $AVAX", requiredBalances)})
+		tb.Append([]string{formatter.F("{{red}}{{bold}}REQUIRED BALANCE{{/}}"), formatter.F("{{light-gray}}{{bold}}{{underline}}%s{{/}} $CAM", requiredBalances)})
 	}
 
 	tb.Append([]string{formatter.F("{{orange}}URI{{/}}"), formatter.F("{{light-gray}}{{bold}}%s{{/}}", i.uri)})

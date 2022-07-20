@@ -1,3 +1,14 @@
+// Copyright (C) 2022, Chain4Travel AG. All rights reserved.
+//
+// This file is a derived work, based on ava-labs code whose
+// original notices appear below.
+//
+// It is distributed under the same license conditions as the
+// original code from which it is derived.
+//
+// Much love to the original authors for their work.
+// **********************************************************
+
 // Copyright (C) 2019-2022, Ava Labs, Inc. All rights reserved.
 // See the file LICENSE for licensing terms.
 
@@ -11,12 +22,12 @@ import (
 	"net/url"
 	"time"
 
-	"github.com/ava-labs/avalanchego/ids"
-	avago_constants "github.com/ava-labs/avalanchego/utils/constants"
-	"github.com/ava-labs/avalanchego/vms/avm"
-	"github.com/ava-labs/avalanchego/vms/platformvm"
-	internal_platformvm "github.com/ava-labs/subnet-cli/internal/platformvm"
-	"github.com/ava-labs/subnet-cli/internal/poll"
+	internal_platformvm "github.com/chain4travel/camino-subnet-cli/internal/platformvm"
+	"github.com/chain4travel/camino-subnet-cli/internal/poll"
+	"github.com/chain4travel/caminogo/ids"
+	avago_constants "github.com/chain4travel/caminogo/utils/constants"
+	"github.com/chain4travel/caminogo/vms/avm"
+	"github.com/chain4travel/caminogo/vms/platformvm"
 	"go.uber.org/zap"
 )
 
@@ -93,16 +104,16 @@ func New(cfg Config) (Client, error) {
 		// e.g., https://api.avax-test.network
 		xChainName = "X"
 	}
-	zap.L().Info("fetching AVAX asset id",
+	zap.L().Info("fetching CAM asset id",
 		zap.String("uri", uriX),
 	)
 	xc := avm.NewClient(uriX, xChainName)
-	avaxDesc, err := xc.GetAssetDescription(context.TODO(), "AVAX")
+	avaxDesc, err := xc.GetAssetDescription(context.TODO(), "CAM")
 	if err != nil {
 		return nil, err
 	}
 	cli.assetID = avaxDesc.AssetID
-	zap.L().Info("fetched AVAX asset id", zap.String("id", cli.assetID.String()))
+	zap.L().Info("fetched CAM asset id", zap.String("id", cli.assetID.String()))
 
 	zap.L().Info("fetching network information")
 	cli.networkName, err = cli.i.Client().GetNetworkName(context.TODO())

@@ -1,3 +1,14 @@
+// Copyright (C) 2022, Chain4Travel AG. All rights reserved.
+//
+// This file is a derived work, based on ava-labs code whose
+// original notices appear below.
+//
+// It is distributed under the same license conditions as the
+// original code from which it is derived.
+//
+// Much love to the original authors for their work.
+// **********************************************************
+
 // Copyright (C) 2019-2022, Ava Labs, Inc. All rights reserved.
 // See the file LICENSE for licensing terms.
 
@@ -10,13 +21,13 @@ import (
 	"testing"
 	"time"
 
-	"github.com/ava-labs/avalanchego/ids"
-	"github.com/ava-labs/avalanchego/utils/constants"
-	"github.com/ava-labs/avalanchego/utils/units"
-	"github.com/ava-labs/subnet-cli/client"
-	"github.com/ava-labs/subnet-cli/internal/key"
-	"github.com/ava-labs/subnet-cli/pkg/color"
-	"github.com/ava-labs/subnet-cli/pkg/logutil"
+	"github.com/chain4travel/camino-subnet-cli/client"
+	"github.com/chain4travel/camino-subnet-cli/internal/key"
+	"github.com/chain4travel/camino-subnet-cli/pkg/color"
+	"github.com/chain4travel/camino-subnet-cli/pkg/logutil"
+	"github.com/chain4travel/caminogo/ids"
+	"github.com/chain4travel/caminogo/utils/constants"
+	"github.com/chain4travel/caminogo/utils/units"
 	runner_client "github.com/gyuho/avax-tester/client"
 	ginkgo "github.com/onsi/ginkgo/v2"
 	"github.com/onsi/gomega"

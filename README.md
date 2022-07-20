@@ -1,14 +1,14 @@
 # subnet-cli
 
-A command-line interface to manage [Avalanche Subnets](https://docs.avax.network/subnets/).
+A command-line interface to manage [Camino Subnets](https://docs.camino.foundation/subnets/).
 
 ## Install
 
 ### Source
 
 ```bash
-git clone https://github.com/ava-labs/subnet-cli.git;
-cd subnet-cli;
+git clone https://github.com/chain4travel/camino-subnet-cli.git;
+cd camino-subnet-cli;
 go install -v .;
 ```
 
@@ -23,9 +23,9 @@ VERSION=0.0.1 # Populate latest here
 GOARCH=$(go env GOARCH)
 GOOS=$(go env GOOS)
 DOWNLOAD_PATH=/tmp/subnet-cli.tar.gz
-DOWNLOAD_URL=https://github.com/ava-labs/subnet-cli/releases/download/v${VERSION}/subnet-cli_${VERSION}_linux_${GOARCH}.tar.gz
+DOWNLOAD_URL=https://github.com/chain4travel/camino-subnet-cli/releases/download/v${VERSION}/subnet-cli_${VERSION}_linux_${GOARCH}.tar.gz
 if [[ ${GOOS} == "darwin" ]]; then
-  DOWNLOAD_URL=https://github.com/ava-labs/subnet-cli/releases/download/v${VERSION}/subnet-cli_${VERSION}_darwin_${GOARCH}.tar.gz
+  DOWNLOAD_URL=https://github.com/chain4travel/camino-subnet-cli/releases/download/v${VERSION}/subnet-cli_${VERSION}_darwin_${GOARCH}.tar.gz
 fi
 
 rm -f ${DOWNLOAD_PATH}
@@ -70,25 +70,6 @@ Flags:
 Use "subnet-cli [command] --help" for more information about a command.
 ```
 
-#### Ledger Support
-
-To use your [Ledger](https://www.ledger.com) with `subnet-cli`, just add the
-`-l`/`--ledger` flag to any command below.
-
-For example, to create 4 node network on Fuji with Ledger, you would run:
-
-```bash
-subnet-cli wizard \
---ledger \
---node-ids=NodeID-741aqvs6R4iuHDyd1qT1NrFTmsgu78dc4,NodeID-K7Y79oAmBntAcdkyY1CLxCim8QuqcZbBp,NodeID-C3EY6u4v7DDi6YEbYf1wmXdvkEFXYuXNW,NodeID-AiLGeqQfh9gZY3Y8wLMD15tuJtsJHq5Qi \
---vm-genesis-path=fake-genesis.json \
---vm-id=tGas3T58KzdjLHhBDMnH2TvrddhqTji5iZAMZ3RXs2NLpSnhH \
---chain-name=test
-```
-
-_Make sure you've downloaded the latest version of the
-[Avalanche Ledger App](https://docs.avax.network/learn/setup-your-ledger-nano-s-with-avalanche)!_
-
 ### `subnet-cli create VMID`
 
 This command is used to generate a valid VMID based on some string to uniquely
@@ -105,17 +86,16 @@ subnet-cli create VMID <identifier> [--hash]
 subnet-cli create key
 ```
 
-`subnet-cli` will assume you have funds on this key (or `--private-key-path`) on the P-Chain for the
-rest of this walkthrough.
+This creates a file `.subnet-cli.pk` under the current directory with a private key. By default,
+`subnet-cli` uses the key specified in file `.subnet-cli.pk` on the P-Chain to pay for the transaction fee, unless `--private-key-path` is used to overwrite. Please make sure that you have enough funds on this P-Chain address to pay for transactions.
 
-The easiest way to do this (**for testing only**) is:
+#### Local
 
-1) Import your private key (`.subnet-cli.pk`) into the [web wallet](https://wallet.avax.network)
-2) Request funds from the [faucet](https://faucet.avax-test.network)
-3) Move the test funds (sent on either the X or C-Chain) to the P-Chain [(Tutorial)](https://docs.avax.network/build/tutorials/platform/transfer-avax-between-x-chain-and-p-chain/)
+On local node funds can be transfered from X-Chain to P-Chain using the following API calls:
+- `avm.export`
+- `platform.importAVAX`
 
-After following these 3 steps, your test key should now have a balance on the
-P-Chain.
+After following steps, your key should now have a balance on the P-Chain.
 
 ### `subnet-cli wizard`
 
@@ -162,7 +142,7 @@ subnet-cli create subnet \
 ```bash
 subnet-cli add validator \
 --node-ids="[YOUR-NODE-ID]" \
---stake-amount=[STAKE-AMOUNT-IN-NANO-AVAX] \
+--stake-amount=[STAKE-AMOUNT-IN-NANO-CAM] \
 --validate-reward-fee-percent=2
 ```
 
@@ -176,9 +156,6 @@ subnet-cli add validator \
 --stake-amount=2000000000000 \
 --validate-reward-fee-percent=3
 ```
-
-![add-validator-local-1](./img/add-validator-local-1.png)
-![add-validator-local-2](./img/add-validator-local-2.png)
 
 ### `subnet-cli add subnet-validator`
 
@@ -238,7 +215,3 @@ subnet-cli status blockchain \
 ```
 
 See [`scripts/tests.e2e.sh`](scripts/tests.e2e.sh) and [`tests/e2e/e2e_test.go`](tests/e2e/e2e_test.go) for example tests.
-
-## Running with local network
-
-See [`network-runner`](https://github.com/ava-labs/avalanche-network-runner).
