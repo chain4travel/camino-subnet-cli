@@ -115,15 +115,17 @@ func New(cfg Config) (Client, error) {
 	cli.assetID = avaxDesc.AssetID
 	zap.L().Info("fetched CAM asset id", zap.String("id", cli.assetID.String()))
 
-	zap.L().Info("fetching network information")
-	cli.networkName, err = cli.i.Client().GetNetworkName(context.TODO())
+	//zap.L().Info("fetching network information")
+	//cli.networkName, err = cli.i.Client().GetNetworkName(context.TODO())
 	if err != nil {
 		return nil, err
 	}
-	cli.networkID, err = avago_constants.NetworkID(cli.networkName)
-	if err != nil {
-		return nil, err
-	}
+	//cli.networkID, err = avago_constants.NetworkID(cli.networkName)
+	//if err != nil {
+	//	return nil, err
+	//}
+	cli.networkID = 1002
+	cli.networkName = "Kopernikus"
 	zap.L().Info("fetched network information",
 		zap.Uint32("networkId", cli.networkID),
 		zap.String("networkName", cli.networkName),
