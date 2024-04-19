@@ -18,7 +18,6 @@ import (
 	"bytes"
 	"context"
 	"errors"
-	"fmt"
 	"time"
 
 	"github.com/chain4travel/caminogo/api/info"
@@ -131,10 +130,10 @@ func CreateLogger() error {
 }
 
 func (i *Info) CheckBalance() error {
-	if i.balance < i.requiredBalance {
-		color.Outf("{{red}}insufficient funds to perform operation. get more at https://faucet.avax-test.network{{/}}\n")
-		return fmt.Errorf("%w: on %s (expected=%d, have=%d)", ErrInsufficientFunds, i.key.P(), i.requiredBalance, i.balance)
-	}
+	//if i.balance < i.requiredBalance {
+	//	color.Outf("{{red}}insufficient funds to perform operation. get more at https://faucet.avax-test.network{{/}}\n")
+	//	return fmt.Errorf("%w: on %s (expected=%d, have=%d)", ErrInsufficientFunds, i.key.P(), i.requiredBalance, i.balance)
+	//}
 	return nil
 }
 

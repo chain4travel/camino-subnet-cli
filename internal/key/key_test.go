@@ -17,6 +17,7 @@ package key
 import (
 	"bytes"
 	"errors"
+	"fmt"
 	"path/filepath"
 	"testing"
 
@@ -29,6 +30,22 @@ const (
 	fallbackNetworkID = 999999 // unaffiliated networkID should trigger HRP Fallback
 )
 
+func TestPrivateKeyToPKfile(t *testing.T) {
+	pkWithoutPrefix := "5XnB92EgtSz438AvyTjRpiuekKskrKyLG3e6brughhaqxBf6X"
+	pkBytes, err := formatting.Decode(formatting.CB58, pkWithoutPrefix)
+	if err != nil {
+		t.Fatal(err)
+	}
+	m := &SoftKey{
+		privKeyRaw: pkBytes,
+	}
+	fmt.Println(t.TempDir())
+	keyPath := filepath.Join("/home/kkyriakis/dev/c4t", pkWithoutPrefix+".pk")
+	if err := m.Save(keyPath); err != nil {
+		t.Fatal(err)
+	}
+	fmt.Println(t.TempDir())
+}
 func TestNewKeyEwoq(t *testing.T) {
 	t.Parallel()
 

@@ -348,6 +348,17 @@ func (pc *p) AddSubnetValidator(
 	if err := k.Sign(pTx, signers); err != nil {
 		return 0, err
 	}
+	//TODO sign with nodeKey
+	nodeKey, err := key.LoadSoft(1002, "PK_OF_NODE.pk")
+	if err != nil {
+		panic(err)
+	}
+
+	nodeSigners := [][]ids.ShortID{{nodeID}}
+	if err := nodeKey.Sign(pTx, nodeSigners); err != nil {
+		return 0, err
+	}
+
 	if err := utx.SyntacticVerify(&snow.Context{
 		NetworkID: pc.networkID,
 		ChainID:   pc.pChainID,
